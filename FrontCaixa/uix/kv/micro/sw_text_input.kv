@@ -1,0 +1,23 @@
+<SWTextInput>:
+    md_bg_color:1,1,1,1
+    size_hint:None,None
+    width:dp(220)
+    height:dp((texto.font_size*1.1)+7)
+    radius:dp(7)
+    TextInput:
+        id:texto
+        text:root.text
+        hint_text:root.hint_text
+        background_color:0,0,0,0
+        font_style:root.font_style
+        font_size:root.font_size
+        bold:root.bold
+        password: root.password
+        write_tab:False
+        color:root.text_color
+        pos_hint:{'center_x':0.5,'center_y':0.5}
+        size_hint_y:None
+        height:root.font_size*2
+        on_text:root.set_text(self.text)
+        multiline:False
+        

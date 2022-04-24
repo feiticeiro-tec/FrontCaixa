@@ -1,0 +1,40 @@
+#: import SWTextInput FrontCaixa.uix.object.micro.sw_text_input.SWTextInput
+#: import SWButton FrontCaixa.uix.object.micro.sw_button.SWButton
+#: import run_async tortoise.run_async
+#: import MDApp kivymd.app.MDApp
+
+<Login>:
+    MDRelativeLayout:
+        md_bg_color:MDApp.get_running_app().primary_color_back
+        MDBoxLayout:
+            orientation:'vertical'
+            spacing:dp(2)
+            adaptive_size:True
+            pos_hint:{'center_x':0.5,'center_y':0.5}
+
+            SWTextInput:
+                id:email
+                hint_text:'Email@gmail.com'
+                pc_style:True
+                
+            SWTextInput:
+                id:senha
+                hint_text:'Senha'
+                password:True
+                pc_style:True
+                
+            MDBoxLayout:
+                adaptive_size:True
+                padding:dp(0),dp(5),dp(0),dp(0)
+                orientation:'vertical'
+                spacing:dp(2)
+
+                SWButton:
+                    text:'Login'
+                    pc_style:True
+                    on_release:run_async(root.action_login(email.text,senha.text))
+                SWButton:
+                    text:'Registrar'
+                    pc_style:True
+                    on_release:root.action_register()
+            

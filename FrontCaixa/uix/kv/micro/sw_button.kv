@@ -1,0 +1,15 @@
+<SWButton>:
+    md_bg_color:1,1,1,1
+    size_hint:None,None
+    width:dp(220)
+    height:dp((texto.font_size*1.1)+7)
+    radius:dp(7)
+    MDLabel:
+        id:texto
+        text:root.text
+        font_style:'Overline'
+        bold:root.bold
+        color:root.text_color
+        halign:'center'
+        font_size:root.font_size
+        pos_hint:{'center_x':0.5,'center_y':0.5}
