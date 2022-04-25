@@ -36,10 +36,11 @@ class Caixa(Model):
 
 class Venda(Model):
     id = fields.IntField(pk=True)
+    venda_id = fields.IntField()
     produto = fields.ForeignKeyField("models.Produto", related_name="vendas")
     caixa = fields.ForeignKeyField("models.Caixa", related_name="vendas")
     
     @staticmethod
-    async def create(produto:Produto,caixa:Caixa):
-        return await super(Venda,Venda).create(produto= produto, caixa = caixa)
+    async def create(venda_id:int,produto:Produto,caixa:Caixa):
+        return await super(Venda,Venda).create(venda_id=venda_id,produto= produto, caixa = caixa)
 
