@@ -1,12 +1,11 @@
 from kivymd.app import MDApp
-from FrontCaixa.utils import string_strip,match_email,match_password,Message
 from kivymd.uix.screen import MDScreen
-from FrontCaixa.models import Caixa
 from tortoise import run_async
 from tortoise.exceptions import IntegrityError
+from FrontCaixa.utils import string_strip,match_email,match_password,Message
+from FrontCaixa.models import Caixa
 import os
 import hashlib
-
 
 class Register(MDScreen):
     

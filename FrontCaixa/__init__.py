@@ -1,11 +1,10 @@
 from kivymd.app import MDApp
+from kivy.properties import ListProperty
 from tortoise import Tortoise,run_async
-from pprint import pprint
-from .models import *
+from FrontCaixa.uix.object.macro import ManagerPage
+from FrontCaixa.models import *
 import os
 import json
-from FrontCaixa.uix.object.macro import ManagerPage
-from kivy.properties import ListProperty
 
 class FrontCaixa(MDApp):
     primary_color_back = ListProperty([1,1,1,1])
@@ -15,7 +14,6 @@ class FrontCaixa(MDApp):
         self.load_env()
         self.load_kvs()
         self.mp = ManagerPage()
-        
 
     def load_kvs(self):
         path = './FrontCaixa/uix/kv'
