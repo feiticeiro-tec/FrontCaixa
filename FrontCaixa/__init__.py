@@ -19,6 +19,7 @@ class FrontCaixa(MDApp):
         self.mp = ManagerPage()
 
     def load_kvs(self):
+        """Carrega Os Kvs Detros De FrontCaixa/uix/kv"""
         path = './FrontCaixa/uix/kv'
         for pasta in os.listdir(path):
             for file in os.listdir(f'{path}/{pasta}'):
@@ -26,12 +27,14 @@ class FrontCaixa(MDApp):
                 self.load_kv(f'{path}/{pasta}/{file}')
     
     def load_env(self):
+        """Carrega Todas As Variaveis Externas Dentro De config_app.json"""
         with open('config_app.json') as env:
             data = json.loads(env.read())
         for key,value in data.items():
             os.environ[key] = value
 
     def load_theme(self):
+        """Carrega As Cores Detro Do Arquivo theme_app.json"""
         with open('theme_app.json') as theme:
             data = json.loads(theme.read())
         for key,value in data.items():
@@ -39,13 +42,16 @@ class FrontCaixa(MDApp):
                 exec(f'self.{key} = {value}')
     
     def goto(self,name,direction):
+        """Troca a Current Do ManagerPage"""
         self.mp.transition.direction = direction
         self.mp.current = name
 
     def build(self):
+        """Controi a Aplicação"""
         return self.mp
 
     async def start_tortoise(self):
+        """Inicializa o Banco De Dados"""
         await Tortoise.init(
             db_url='sqlite://database.db',
             modules={'models':['FrontCaixa.models']}

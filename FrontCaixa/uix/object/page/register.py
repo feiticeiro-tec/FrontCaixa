@@ -2,18 +2,19 @@ from kivymd.app import MDApp
 from kivymd.uix.screen import MDScreen
 from tortoise import run_async
 from tortoise.exceptions import IntegrityError
-from FrontCaixa.utils import string_strip,match_email,match_password,Message
+from FrontCaixa.utils import string_strip,match_email,match_string,Message,generate_hash
 from FrontCaixa.models import Caixa
 import os
 import hashlib
 
 class Register(MDScreen):
-    
-    async def action_register(self,usuario,email,senha,csenha,senha_master):
+    """Pagina Principal Register"""
+    async def action_register(self,usuario:str,email:str,senha:str,csenha:str,senha_master:str) -> None:
+        """Ação Ao Apertar o Botão Register"""
         usuario = string_strip(usuario)
         validate_email, email = match_email(email)
-        validate_senha, senha = match_password(senha, csenha)
-        validate_master, master = match_password(hashlib.md5(f'frontcaixa{senha_master}'.encode()).hexdigest(), os.environ.get('MasterPassword'))
+        validate_senha, senha = match_string(senha, csenha)
+        validate_master, master = match_string(generate_hash(senha_master), os.environ.get('MasterPassword'))
         if usuario:
             if validate_email:
                 if validate_senha:
@@ -42,10 +43,12 @@ class Register(MDScreen):
         else:
             print(Message.usuario_invalido())
 
-    def action_cancel(self):
+    def action_cancel(self) -> None:
+        """Ação Ao Apertar o Botão Cancelar"""
         MDApp.get_running_app().goto('Login','left')
 
-    def on_leave(self,*args):
+    def on_leave(self,*args) -> None:
+        """Reseta Os Inputs Ao Sair Da Tela"""
         self.ids.usuario.text = ''
         self.ids.email.text = ''
         self.ids.senha.text = ''
