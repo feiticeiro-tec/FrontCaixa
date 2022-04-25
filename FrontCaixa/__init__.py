@@ -1,3 +1,7 @@
+from kivy.core.window import Window
+Window.size = (1020, 620)
+Window.minimum_width, Window.minimum_height = Window.size
+
 from kivymd.app import MDApp
 from kivy.properties import ListProperty
 from tortoise import Tortoise,run_async
