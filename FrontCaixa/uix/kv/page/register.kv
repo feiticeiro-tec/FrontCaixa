@@ -50,9 +50,11 @@
                     text:'Registrar'
                     pc_style:True
                     on_release:run_async(root.action_register(usuario.text,email.text,senha.text,csenha.text,senha_master.text))
+                    md_bg_color:MDApp.get_running_app().primary_color_green_button
                 SWButton:
                     text:'Cancelar'
                     pc_style:True
                     on_release:root.action_cancel()
+                    md_bg_color:MDApp.get_running_app().primary_color_red_button
 
             
