@@ -3,17 +3,23 @@ Window.size = (1020, 620)
 Window.minimum_width, Window.minimum_height = Window.size
 
 from kivymd.app import MDApp
-from kivy.properties import ListProperty
+from kivymd.uix.dialog import MDDialog
+from kivy.properties import ListProperty,ObjectProperty
 from tortoise import Tortoise,run_async
 from FrontCaixa.uix.object.macro import ManagerPage
 from FrontCaixa.models import *
+from FrontCaixa.utils.caixa_fake import CaixaFake
 import os
 import json
 
 class FrontCaixa(MDApp):
-    primary_color_back = ListProperty([35/255,35/255,35/255,1])
-    primary_color_red_button = ListProperty([0.9,0.6,0.6,1])
-    primary_color_green_button = ListProperty([0.6,0.9,0.6,1])
+    color_lite = ListProperty([85/255,85/255,95/255,1])#MDApp.get_running_app().color_lite
+    color_dark = ListProperty([35/255,35/255,35/255,1])#MDApp.get_running_app().color_dark
+    button_negativo = ListProperty([0.9,0.6,0.6,1])
+    button_positivo = ListProperty([0.6,0.9,0.6,1])
+    texto_lite = ListProperty([1,1,1,1])
+    texto_dark = ListProperty([0,0,0,1])
+    USUARIO = ObjectProperty(CaixaFake())
     def __init__(self):
         super().__init__()
         run_async(self.start_tortoise())
@@ -24,7 +30,6 @@ class FrontCaixa(MDApp):
     def _on_keyboard_settings(self, *args):
         ...
     
-
     def load_kvs(self):
         """Carrega Os Kvs Detros De FrontCaixa/uix/kv"""
         path = './FrontCaixa/uix/kv'
@@ -45,8 +50,19 @@ class FrontCaixa(MDApp):
         with open('theme_app.json') as theme:
             data = json.loads(theme.read())
         for key,value in data.items():
-            if key in ('primary_color_back','primary_color_red_button','primary_color_green_button') and type(value) == list:
+            if key in (
+                'color_lite',
+                'color_dark',
+                'button_negativo',
+                'button_positivo',
+                'texto_lite',
+                'texto_dark'
+                ) and type(value) == list:
                 exec(f'self.{key} = {value}')
+    def pop(self,text):
+        pop = MDDialog(
+            text=text)
+        pop.open()
     
     def goto(self,name,direction):
         """Troca a Current Do ManagerPage"""

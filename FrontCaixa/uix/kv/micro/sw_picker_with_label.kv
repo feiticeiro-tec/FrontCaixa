@@ -1,0 +1,17 @@
+<SWPickerWithLabel>:
+    adaptive_height:True
+    size_hint_x:None
+    width:dp(250)
+    MDLabel:
+        text:root.text
+        font_style:'Overline'
+        font_size:dp(15)
+        bold:True
+        
+    MDIconButton:
+        id:button
+        icon:'circle-edit-outline'
+        theme_text_color:'Custom'
+        md_bg_color:root.color
+        text_color:[0,0,0,1] if any(color>=0.5 for color in root.color[:-1]) else [1,1,1,1]
+        on_release:root.open_color(self)

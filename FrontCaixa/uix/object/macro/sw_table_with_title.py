@@ -2,9 +2,11 @@ from kivymd.uix.boxlayout import MDBoxLayout
 from kivymd.uix.datatables import MDDataTable
 from kivy.metrics import dp
 from kivy.clock import Clock
-from kivy.properties import NumericProperty
+from kivy.properties import NumericProperty,ColorProperty
 class SWTableWithTitle(MDBoxLayout):
     sub_total = NumericProperty()
+    color=ColorProperty([35/255,35/255,45/255,1])
+    text_color=ColorProperty([1,1,1,1])
     def add_item_table(self,item, lista=False):
         def editar(self,item, lista=False):
             if len(self.ids.table.children) == 1:
