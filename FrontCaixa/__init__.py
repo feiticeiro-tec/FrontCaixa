@@ -8,6 +8,7 @@ from kivy.properties import ListProperty,ObjectProperty
 from tortoise import Tortoise,run_async
 from FrontCaixa.uix.object.macro import ManagerPage
 from FrontCaixa.models import *
+from FrontCaixa.utils.caixa_fake import CaixaFake
 import os
 import json
 
@@ -18,7 +19,7 @@ class FrontCaixa(MDApp):
     button_positivo = ListProperty([0.6,0.9,0.6,1])
     texto_lite = ListProperty([1,1,1,1])
     texto_dark = ListProperty([0,0,0,1])
-    USUARIO = ObjectProperty(None)
+    USUARIO = ObjectProperty(CaixaFake())
     def __init__(self):
         super().__init__()
         run_async(self.start_tortoise())

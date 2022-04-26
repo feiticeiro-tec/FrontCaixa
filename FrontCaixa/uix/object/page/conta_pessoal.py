@@ -5,6 +5,16 @@ from FrontCaixa.models import Caixa
 import json
 
 class ContaPessoal(MDScreen):
+    def __init__(self,*args,**kw):
+        super().__init__(*args,**kw)
+        MDApp.get_running_app().bind(USUARIO=self.update_labels)
+
+    def update_labels(self,obj,caixa):
+        self.ids.menu_conta.text = f'Conta: {caixa.nome}'
+        self.ids.menu_email.text = f'Email: {caixa.email}'
+        self.ids.menu_data.text = f'Criado: {str(caixa.date_create).split()[0]}'
+
+
     async def atualizar_senha(self,nova_senha,cnova_senha,senha_atual):
         app = MDApp.get_running_app()
         validate, nova_senha = match_string(nova_senha, cnova_senha)

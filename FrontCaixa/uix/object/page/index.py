@@ -9,6 +9,9 @@ class Index(MDScreen):
     def __init__(self,*args,**kw):
         super().__init__(*args,**kw)
         self._keyboard = Window.request_keyboard(self._keyborad_close,self)
+        MDApp.get_running_app().bind(USUARIO=self.update_labels)
+    def update_labels(self,obj,caixa):
+        self.ids.info_conta.text = f'Conta: {caixa.nome}'
     
     def on_enter(self):
         self.ids.table.add_item_table([
