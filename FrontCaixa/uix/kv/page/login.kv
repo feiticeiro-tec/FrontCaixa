@@ -5,7 +5,7 @@
 
 <Login>:
     MDRelativeLayout:
-        md_bg_color:MDApp.get_running_app().primary_color_back
+        md_bg_color:MDApp.get_running_app().color_dark
         MDBoxLayout:
             orientation:'vertical'
             spacing:dp(2)
@@ -33,10 +33,10 @@
                     text:'Login'
                     pc_style:True
                     on_release:run_async(root.action_login(email.text,senha.text))
-                    md_bg_color:MDApp.get_running_app().primary_color_green_button
+                    md_bg_color:MDApp.get_running_app().button_positivo
                 SWButton:
                     text:'Registrar'
                     pc_style:True
                     on_release:root.action_register()
-                    md_bg_color:MDApp.get_running_app().primary_color_red_button
+                    md_bg_color:MDApp.get_running_app().button_negativo
             

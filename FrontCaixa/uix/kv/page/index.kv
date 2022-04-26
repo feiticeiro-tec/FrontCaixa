@@ -5,7 +5,7 @@
 <Index>:
     MDBoxLayout:
         padding:dp(7)
-        md_bg_color:85/255,85/255,95/255,1
+        md_bg_color:MDApp.get_running_app().color_lite
         MDBoxLayout:
             orientation:'vertical'
             spacing:dp(5)
@@ -18,7 +18,7 @@
                 pos_hint:{'center_x':0.5,'center_y':0.5}
                 MDBoxLayout:
                     radius:dp(7),dp(7),dp(7),dp(7)
-                    md_bg_color:24/255,24/255,35/255,1
+                    md_bg_color:MDApp.get_running_app().color_dark
                     MDLabel:
                         text:'Caixa Aberto'
                         font_style:'Overline'
@@ -28,7 +28,7 @@
                         color:1,1,1,1
                         
                 MDIconButton:
-                    md_bg_color:24/255,24/255,35/255,1
+                    md_bg_color:MDApp.get_running_app().color_dark
                     icon:'account'
                     theme_text_color:'Custom'
                     text_color:1,1,1,1
@@ -39,7 +39,7 @@
                 pos_hint:{'center_x':0.5,'center_y':0.5}
                 
                 MDBoxLayout:
-                    md_bg_color:24/255,24/255,35/255,1
+                    md_bg_color:MDApp.get_running_app().color_dark
                     size_hint_x:None
                     width:dp(300)
                     orientation:'vertical'

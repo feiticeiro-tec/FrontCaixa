@@ -11,9 +11,10 @@ import os
 import json
 
 class FrontCaixa(MDApp):
-    primary_color_back = ListProperty([35/255,35/255,35/255,1])
-    primary_color_red_button = ListProperty([0.9,0.6,0.6,1])
-    primary_color_green_button = ListProperty([0.6,0.9,0.6,1])
+    color_lite = ListProperty([85/255,85/255,95/255,1])#MDApp.get_running_app().color_lite
+    color_dark = ListProperty([35/255,35/255,35/255,1])#MDApp.get_running_app().color_dark
+    button_negativo = ListProperty([0.9,0.6,0.6,1])
+    button_positivo = ListProperty([0.6,0.9,0.6,1])
     def __init__(self):
         super().__init__()
         run_async(self.start_tortoise())
@@ -44,7 +45,12 @@ class FrontCaixa(MDApp):
         with open('theme_app.json') as theme:
             data = json.loads(theme.read())
         for key,value in data.items():
-            if key in ('primary_color_back','primary_color_red_button','primary_color_green_button') and type(value) == list:
+            if key in (
+                'color_lite',
+                'color_dark',
+                'button_negativo',
+                'button_positivo'
+                ) and type(value) == list:
                 exec(f'self.{key} = {value}')
     
     def goto(self,name,direction):
