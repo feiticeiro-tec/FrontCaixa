@@ -47,41 +47,45 @@
                 spacing:dp(5)
                 radius:dp(7)
                 pos_hint:{'center_x':0.5,'top':1}
-                SWPickerWithLabel
+                SWPickerWithLabel:
+                    id:cor_fundo_claro
                     text:'Cor Fundo Claro'
-                    color:MDApp.get_running_app().color_lite
 
-                SWPickerWithLabel
+                SWPickerWithLabel:
+                    id:cor_fundo_escuro
                     text:'Cor Fundo Escuro'
-                    color:MDApp.get_running_app().color_dark
 
-                SWPickerWithLabel
+                SWPickerWithLabel:
+                    id:cor_texto_claro
                     text:'Cor Texto Claro'
-                    color:MDApp.get_running_app().texto_lite
 
-                SWPickerWithLabel
+                SWPickerWithLabel:
+                    id:cor_texto_escuro
                     text:'Cor Texto Escuro'
-                    color:MDApp.get_running_app().texto_dark
                 
-                SWPickerWithLabel
+                SWPickerWithLabel:
+                    id:cor_button_positivo
                     text:'Cor Botão Positivo'
-                    color:MDApp.get_running_app().button_positivo
                 
-                SWPickerWithLabel
+                SWPickerWithLabel:
+                    id:cor_button_negativo
                     text:'Cor Botão Negativo'
-                    color:MDApp.get_running_app().button_negativo
+
                 SWButton:
                     text:'Salvar'
                     md_bg_color:MDApp.get_running_app().button_positivo
                     pc_style:True
                     pos_hint:{'center_x':0.5}
                     bold:True
+                    on_release:root.save_theme()
+
                 SWButton:
                     text:'Cancelar'
                     md_bg_color:MDApp.get_running_app().button_negativo
                     pc_style:True
                     pos_hint:{'center_x':0.5}
                     bold:True
+
             MDBoxLayout:
                 orientation:'vertical'
                 adaptive_size:True

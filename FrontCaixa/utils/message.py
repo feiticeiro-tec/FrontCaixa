@@ -39,3 +39,7 @@ class Message:
     @staticmethod
     def email_ou_senha_invalida() ->str:
         return 'Email ou Senha Invalida!'
+
+    @staticmethod
+    def theme_sera_aplicado() -> str:
+        return 'O Tema Será Aplicado Ao Reiniciar o Programa!'
