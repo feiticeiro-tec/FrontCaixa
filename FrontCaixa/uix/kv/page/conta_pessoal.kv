@@ -1,9 +1,10 @@
-#: import SWColorPicker FrontCaixa.uix.object.macro.sw_color_picker.SWColorPicker
+#: import SWPickerWithLabel FrontCaixa.uix.object.micro.sw_picker_with_label.SWPickerWithLabel
 <ContaPessoal>:
     MDBoxLayout:
         md_bg_color:1,0,0,1
         size_hint_x:None
         width:dp(1010)
+        orientation:'vertical'
         MDBoxLayout:
             size_hint_y:None
             height:dp(50)
@@ -20,9 +21,22 @@
                 MDTextButton:
                     text:'Trocar Senha'
         MDBoxLayout:
-            MDIconButton:
-                icon:'android'
-                theme_text_color:'Custom'
-                on_release:root.open_color(self)
+            orientation:'vertical'
+            SWPickerWithLabel
+                text:'Cor Fundo Lite'
+                color:1,1,0,1
+
+            SWPickerWithLabel
+                text:'Cor Fundo Dark'
+                color:1,1,1,1
+
+            SWPickerWithLabel
+                text:'Cor Texto Lite'
+                color:1,0,1,1
+
+            SWPickerWithLabel
+                text:'Cor Fundo Dark'
+                color:0,1,1,1
+            
 
             

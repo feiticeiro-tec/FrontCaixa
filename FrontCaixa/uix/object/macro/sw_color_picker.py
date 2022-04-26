@@ -9,7 +9,6 @@ class SWColorPicker(BaseDialog):
     def __init__(self,default,call):
         super().__init__()
         self.ids.color_picker.bind(color=self.set_color)
-        print(default)
         r,g,b,a = default
         self.ids.color_picker.color = [r,g,b,1]
         self.default = [r,g,b,1]
