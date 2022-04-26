@@ -3,7 +3,8 @@ Window.size = (1020, 620)
 Window.minimum_width, Window.minimum_height = Window.size
 
 from kivymd.app import MDApp
-from kivy.properties import ListProperty
+from kivymd.uix.dialog import MDDialog
+from kivy.properties import ListProperty,ObjectProperty
 from tortoise import Tortoise,run_async
 from FrontCaixa.uix.object.macro import ManagerPage
 from FrontCaixa.models import *
@@ -17,6 +18,7 @@ class FrontCaixa(MDApp):
     button_positivo = ListProperty([0.6,0.9,0.6,1])
     texto_lite = ListProperty([1,1,1,1])
     texto_dark = ListProperty([0,0,0,1])
+    USUARIO = ObjectProperty(None)
     def __init__(self):
         super().__init__()
         run_async(self.start_tortoise())
@@ -56,6 +58,10 @@ class FrontCaixa(MDApp):
                 'texto_dark'
                 ) and type(value) == list:
                 exec(f'self.{key} = {value}')
+    def pop(self,text):
+        pop = MDDialog(
+            text=text)
+        pop.open()
     
     def goto(self,name,direction):
         """Troca a Current Do ManagerPage"""

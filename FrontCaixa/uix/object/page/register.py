@@ -11,6 +11,7 @@ class Register(MDScreen):
     """Pagina Principal Register"""
     async def action_register(self,usuario:str,email:str,senha:str,csenha:str,senha_master:str) -> None:
         """Ação Ao Apertar o Botão Register"""
+        app = MDApp.get_running_app()
         usuario = string_strip(usuario)
         validate_email, email = match_email(email)
         validate_senha, senha = match_string(senha, csenha)
@@ -21,27 +22,27 @@ class Register(MDScreen):
                     if validate_master:
                         try:
                             await Caixa.create(email,usuario,senha)
-                            MDApp.get_running_app().goto('Login','left')
+                            app.goto('Login','left')
                         except IntegrityError as error:
                             error = str(error)
                             if 'UNIQUE' in error:
                                 error = error[error.rfind('.')+1:]
                                 if error == 'email':
-                                    print(Message.email_ja_existe(email))
+                                    app.pop(Message.email_ja_existe(email))
                     else:
-                        print(Message.senha_master_invalida())
+                        app.pop(Message.senha_master_invalida())
                 else:
                     if validate_senha == False:
-                        print(Message.senha_nao_comina())
+                        app.pop(Message.senha_nao_comina())
                     else:
-                        print(Message.senha_invalida())
+                        app.pop(Message.senha_invalida())
             else:
                 if validate_email == False:
-                    print(Message.email_invalido(email))
+                    app.pop(Message.email_invalido(email))
                 else:
-                    print(Message.email_nao_informado())
+                    app.pop(Message.email_nao_informado())
         else:
-            print(Message.usuario_invalido())
+            app.pop(Message.usuario_invalido())
 
     def action_cancel(self) -> None:
         """Ação Ao Apertar o Botão Cancelar"""

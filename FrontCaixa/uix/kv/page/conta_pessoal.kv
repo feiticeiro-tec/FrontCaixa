@@ -1,5 +1,8 @@
 #: import MDApp kivymd.app.MDApp
 #: import SWPickerWithLabel FrontCaixa.uix.object.micro.sw_picker_with_label.SWPickerWithLabel
+#: import SWButton FrontCaixa.uix.object.micro.sw_button.SWButton
+#: import SWTextInput FrontCaixa.uix.object.micro.sw_text_input.SWTextInput
+#: import run_async tortoise.run_async
 <ContaPessoal>:
     MDBoxLayout:
         orientation:'vertical'
@@ -32,39 +35,91 @@
                     text:'Data De Criação: 26/04/2022'
                     theme_text_color:'Custom'
                     text_color:MDApp.get_running_app().texto_lite
-                MDTextButton:
-                    text:'Trocar Senha'
-                    color:MDApp.get_running_app().texto_lite
         MDBoxLayout:
-            orientation:'vertical'
+            spacing:dp(25)
             adaptive_size:True
-            md_bg_color:1,1,1,0.3
-            padding:dp(4)
-            radius:dp(7)
             pos_hint:{'center_x':0.5,'top':1}
-            SWPickerWithLabel
-                text:'Cor Fundo Claro'
-                color:MDApp.get_running_app().color_lite
+            MDBoxLayout:
+                orientation:'vertical'
+                adaptive_size:True
+                md_bg_color:1,1,1,0.6
+                padding:dp(4)
+                spacing:dp(5)
+                radius:dp(7)
+                pos_hint:{'center_x':0.5,'top':1}
+                SWPickerWithLabel
+                    text:'Cor Fundo Claro'
+                    color:MDApp.get_running_app().color_lite
 
-            SWPickerWithLabel
-                text:'Cor Fundo Escuro'
-                color:MDApp.get_running_app().color_dark
+                SWPickerWithLabel
+                    text:'Cor Fundo Escuro'
+                    color:MDApp.get_running_app().color_dark
 
-            SWPickerWithLabel
-                text:'Cor Texto Claro'
-                color:MDApp.get_running_app().texto_lite
+                SWPickerWithLabel
+                    text:'Cor Texto Claro'
+                    color:MDApp.get_running_app().texto_lite
 
-            SWPickerWithLabel
-                text:'Cor Texto Escuro'
-                color:MDApp.get_running_app().texto_dark
-            
-            SWPickerWithLabel
-                text:'Cor Botão Positivo'
-                color:MDApp.get_running_app().button_positivo
-            
-            SWPickerWithLabel
-                text:'Cor Botão Negativo'
-                color:MDApp.get_running_app().button_negativo
+                SWPickerWithLabel
+                    text:'Cor Texto Escuro'
+                    color:MDApp.get_running_app().texto_dark
+                
+                SWPickerWithLabel
+                    text:'Cor Botão Positivo'
+                    color:MDApp.get_running_app().button_positivo
+                
+                SWPickerWithLabel
+                    text:'Cor Botão Negativo'
+                    color:MDApp.get_running_app().button_negativo
+                SWButton:
+                    text:'Salvar'
+                    md_bg_color:MDApp.get_running_app().button_positivo
+                    pc_style:True
+                    pos_hint:{'center_x':0.5}
+                    bold:True
+                SWButton:
+                    text:'Cancelar'
+                    md_bg_color:MDApp.get_running_app().button_negativo
+                    pc_style:True
+                    pos_hint:{'center_x':0.5}
+                    bold:True
+            MDBoxLayout:
+                orientation:'vertical'
+                adaptive_size:True
+                spacing:dp(4)
+                pos_hint:{'center_x':0.5,'top':1}
+                MDBoxLayout:
+                    size_hint_y:None
+                    height:dp(25)
+                    MDLabel:
+                        text:'Trocar Senha'
+                        font_style:'Overline'
+                        halign:'center'
+                        bold:True
+                        font_size:dp(16)
+                        color:MDApp.get_running_app().texto_lite
+
+                SWTextInput:
+                    id:novasenha
+                    hint_text:'Nova Senha'
+                    pos_hint:{'center_x':0.5}
+                    password:True
+                SWTextInput:
+                    id:cnovasenha
+                    hint_text:'Confirmar Senha'
+                    pos_hint:{'center_x':0.5}
+                    password:True
+                SWTextInput:
+                    id:senhaatual
+                    hint_text:'Senha Stual'
+                    pos_hint:{'center_x':0.5}
+                    password:True
+                SWButton:
+                    text:'Trocar'
+                    pos_hint:{'center_x':0.5}
+                    md_bg_color:MDApp.get_running_app().button_positivo
+                    pc_style:True
+                    bold:True
+                    on_release:run_async(root.atualizar_senha(novasenha.text,cnovasenha.text,senhaatual.text))
         Widget:
             
 

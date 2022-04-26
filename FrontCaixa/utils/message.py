@@ -20,10 +20,17 @@ class Message:
     def senha_nao_comina() ->str:
         return 'Senha não cominou!'
     
-    
     @staticmethod
     def senha_invalida() ->str:
         return 'Senha Invalida!'
+    
+    @staticmethod
+    def senha_incorreta() ->str:
+        return 'Senha Incorreta!'
+
+    @staticmethod
+    def senha_atualizada() -> str:
+        return 'Senha Atualizada!'
     
     @staticmethod
     def senha_master_invalida() ->str:
