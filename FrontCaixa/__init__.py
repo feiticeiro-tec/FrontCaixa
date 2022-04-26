@@ -21,6 +21,9 @@ class FrontCaixa(MDApp):
         self.load_theme()
         self.load_kvs()
         self.mp = ManagerPage()
+    def _on_keyboard_settings(self, *args):
+        ...
+    
 
     def load_kvs(self):
         """Carrega Os Kvs Detros De FrontCaixa/uix/kv"""
