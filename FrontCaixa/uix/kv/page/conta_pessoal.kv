@@ -1,50 +1,71 @@
+#: import MDApp kivymd.app.MDApp
 #: import SWPickerWithLabel FrontCaixa.uix.object.micro.sw_picker_with_label.SWPickerWithLabel
 <ContaPessoal>:
     MDBoxLayout:
-        md_bg_color:1,0,0,1
-        size_hint_x:None
-        width:dp(1010)
         orientation:'vertical'
+        spacing:dp(5)
+        padding:dp(7)
+        md_bg_color:MDApp.get_running_app().color_lite
         MDBoxLayout:
-            size_hint_y:None
-            height:dp(50)
+            md_bg_color:MDApp.get_running_app().color_dark
+            pos_hint:{'center_x':0.5,'top':1}
+            size_hint:None,None
+            size:dp(1010),dp(80)
+            padding:dp(5)
+            spacing:dp(5)
+            radius:dp(7)
             FitImage:
                 source:'src/logo.png'
+                size_hint:None,None
+                size:dp(70),dp(70)
             MDBoxLayout:
                 orientation:'vertical'
                 MDLabel:
                     text:'Conta: admin'
+                    theme_text_color:'Custom'
+                    text_color:MDApp.get_running_app().texto_lite
                 MDLabel:
                     text:'Email: admin@gmail.com'
+                    theme_text_color:'Custom'
+                    text_color:MDApp.get_running_app().texto_lite
                 MDLabel:
                     text:'Data De Criação: 26/04/2022'
+                    theme_text_color:'Custom'
+                    text_color:MDApp.get_running_app().texto_lite
                 MDTextButton:
                     text:'Trocar Senha'
+                    color:MDApp.get_running_app().texto_lite
         MDBoxLayout:
             orientation:'vertical'
+            adaptive_size:True
+            md_bg_color:1,1,1,0.3
+            padding:dp(4)
+            radius:dp(7)
+            pos_hint:{'center_x':0.5,'top':1}
             SWPickerWithLabel
-                text:'Cor Fundo Lite'
-                color:1,1,0,1
+                text:'Cor Fundo Claro'
+                color:MDApp.get_running_app().color_lite
 
             SWPickerWithLabel
-                text:'Cor Fundo Dark'
-                color:1,1,1,1
+                text:'Cor Fundo Escuro'
+                color:MDApp.get_running_app().color_dark
 
             SWPickerWithLabel
-                text:'Cor Texto Lite'
-                color:1,0,1,1
+                text:'Cor Texto Claro'
+                color:MDApp.get_running_app().texto_lite
 
             SWPickerWithLabel
-                text:'Cor Fundo Dark'
-                color:0,1,1,1
+                text:'Cor Texto Escuro'
+                color:MDApp.get_running_app().texto_dark
             
             SWPickerWithLabel
                 text:'Cor Botão Positivo'
-                color:0,1,1,1
+                color:MDApp.get_running_app().button_positivo
             
             SWPickerWithLabel
                 text:'Cor Botão Negativo'
-                color:0,1,1,1
+                color:MDApp.get_running_app().button_negativo
+        Widget:
             
 
             

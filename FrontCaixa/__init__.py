@@ -15,6 +15,8 @@ class FrontCaixa(MDApp):
     color_dark = ListProperty([35/255,35/255,35/255,1])#MDApp.get_running_app().color_dark
     button_negativo = ListProperty([0.9,0.6,0.6,1])
     button_positivo = ListProperty([0.6,0.9,0.6,1])
+    texto_lite = ListProperty([1,1,1,1])
+    texto_dark = ListProperty([0,0,0,1])
     def __init__(self):
         super().__init__()
         run_async(self.start_tortoise())
@@ -49,7 +51,9 @@ class FrontCaixa(MDApp):
                 'color_lite',
                 'color_dark',
                 'button_negativo',
-                'button_positivo'
+                'button_positivo',
+                'texto_lite',
+                'texto_dark'
                 ) and type(value) == list:
                 exec(f'self.{key} = {value}')
     

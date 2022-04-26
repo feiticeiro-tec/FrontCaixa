@@ -4,149 +4,155 @@
 #: import SWTableWithTitle FrontCaixa.uix.object.macro.sw_table_with_title.SWTableWithTitle
 <Index>:
     MDBoxLayout:
+        orientation:'vertical'
+        spacing:dp(5)
         padding:dp(7)
         md_bg_color:MDApp.get_running_app().color_lite
         MDBoxLayout:
-            orientation:'vertical'
+            size_hint_y:None
+            height:dp(50)
             spacing:dp(5)
+            size_hint_x:None
+            width:dp(1010)
+            pos_hint:{'center_x':0.5,'center_y':0.5}
             MDBoxLayout:
-                size_hint_y:None
-                height:dp(50)
-                spacing:dp(5)
+                radius:dp(7),dp(7),dp(7),dp(7)
+                md_bg_color:MDApp.get_running_app().color_dark
+                MDLabel:
+                    text:'Caixa Aberto'
+                    font_style:'Overline'
+                    font_size:dp(22)
+                    halign:'center'
+                    bold:True
+                    color:1,1,1,1
+                    
+            MDIconButton:
+                md_bg_color:MDApp.get_running_app().color_dark
+                icon:'account'
+                theme_text_color:'Custom'
+                text_color:1,1,1,1
+
+        MDBoxLayout:
+            spacing:dp(5)
+            adaptive_width:True
+            pos_hint:{'center_x':0.5,'center_y':0.5}
+            
+            MDBoxLayout:
+                md_bg_color:MDApp.get_running_app().color_dark
                 size_hint_x:None
-                width:dp(1010)
-                pos_hint:{'center_x':0.5,'center_y':0.5}
+                width:dp(300)
+                orientation:'vertical'
+                radius:dp(7),dp(7),dp(7),dp(7)
+                padding:dp(10)
                 MDBoxLayout:
-                    radius:dp(7),dp(7),dp(7),dp(7)
-                    md_bg_color:MDApp.get_running_app().color_dark
+                    size_hint_y:None
+                    height:dp(50)
                     MDLabel:
-                        text:'Caixa Aberto'
+                        text:'Informaçoes'
                         font_style:'Overline'
                         font_size:dp(22)
                         halign:'center'
                         bold:True
                         color:1,1,1,1
-                        
-                MDIconButton:
-                    md_bg_color:MDApp.get_running_app().color_dark
-                    icon:'account'
-                    theme_text_color:'Custom'
-                    text_color:1,1,1,1
 
+                FitImage:
+                    source:'src/logo.png'
+                    size_hint:None,None
+                    size:dp(200),dp(200)
+                    pos_hint:{'center_x':0.5,'top':1}
+                MDBoxLayout:
+                    orientation:'vertical'
+                    size_hint_y:None
+                    height:dp(40)
+                    MDLabel:
+                        text:'SpellWare'
+                        font_style:'Overline'
+                        font_size:dp(22)
+                        halign:'center'
+                        bold:True
+                        color:1,1,1,1
+                    MDLabel:
+                        text:'Conta: admin'
+                        font_style:'Overline'
+                        font_size:dp(15)
+                        halign:'center'
+                        bold:True
+                        color:1,1,1,0.7
+                MDBoxLayout:
+                    orientation:'vertical'
+                    md_bg_color:1,1,1,1
+                    radius:dp(7),dp(7),dp(7),dp(7)
+                    size_hint_y:None
+                    height:dp(20)*8
+                    padding:dp(10)
+                    MDLabel:
+                        text:'[color=#000bdb]F1[/color] - Conta Pessoal'
+                        markup:True
+                        bold:True
+                    MDLabel:
+                        text:'[color=#000bdb]F2[/color] - Nova Venda'
+                        markup:True
+                        bold:True
+                    MDLabel:
+                        text:'[color=#000bdb]F3[/color] - Cancelar Venda'
+                        markup:True
+                        bold:True
+                    MDLabel:
+                        text:'[color=#000bdb]F4[/color] - Finalizar Venda'
+                        markup:True
+                        bold:True
+                    MDLabel:
+                        text:'[color=#000bdb]F5[/color] - Consutar Preço'
+                        markup:True
+                        bold:True
+                    MDLabel:
+                        text:'[color=#000bdb]F6[/color] - Adicionar Produto'
+                        markup:True
+                        bold:True
+                    MDLabel:
+                        text:'[color=#000bdb]F7[/color] - Remover Produtos'
+                        markup:True
+                        bold:True
+                    MDLabel:
+                        text:'[color=#000bdb]F9[/color] - Atualizar Produtos'
+                        markup:True
+                        bold:True
+                Widget:
+                    
             MDBoxLayout:
-                spacing:dp(5)
+                orientation:'vertical'
                 adaptive_width:True
-                pos_hint:{'center_x':0.5,'center_y':0.5}
+                spacing:dp(5)
+                pos_hint:{'top':1}
+                SWTableWithTitle:
+                    id:table
+                    color:MDApp.get_running_app().color_dark
+                    text_color:MDApp.get_running_app().texto_lite
+
+                SWLabelWithTitle:
+                    title:'Sub Total'
+                    text:str(table.sub_total)
+                    text_start:'R$ '
+                    color:MDApp.get_running_app().color_dark
+                    text_color:MDApp.get_running_app().texto_lite
+
                 
                 MDBoxLayout:
-                    md_bg_color:MDApp.get_running_app().color_dark
-                    size_hint_x:None
-                    width:dp(300)
-                    orientation:'vertical'
-                    radius:dp(7),dp(7),dp(7),dp(7)
-                    padding:dp(10)
-                    MDBoxLayout:
-                        size_hint_y:None
-                        height:dp(50)
-                        MDLabel:
-                            text:'Informaçoes'
-                            font_style:'Overline'
-                            font_size:dp(22)
-                            halign:'center'
-                            bold:True
-                            color:1,1,1,1
-
-                    FitImage:
-                        source:'src/logo.png'
-                        size_hint:None,None
-                        size:dp(200),dp(200)
-                        pos_hint:{'center_x':0.5,'top':1}
-                    MDBoxLayout:
-                        orientation:'vertical'
-                        size_hint_y:None
-                        height:dp(40)
-                        MDLabel:
-                            text:'SpellWare'
-                            font_style:'Overline'
-                            font_size:dp(22)
-                            halign:'center'
-                            bold:True
-                            color:1,1,1,1
-                        MDLabel:
-                            text:'Conta: admin'
-                            font_style:'Overline'
-                            font_size:dp(15)
-                            halign:'center'
-                            bold:True
-                            color:1,1,1,0.7
-                    MDBoxLayout:
-                        orientation:'vertical'
-                        md_bg_color:1,1,1,1
-                        radius:dp(7),dp(7),dp(7),dp(7)
-                        size_hint_y:None
-                        height:dp(20)*8
-                        padding:dp(10)
-                        MDLabel:
-                            text:'[color=#000bdb]F1[/color] - Conta Pessoal'
-                            markup:True
-                            bold:True
-                        MDLabel:
-                            text:'[color=#000bdb]F2[/color] - Nova Venda'
-                            markup:True
-                            bold:True
-                        MDLabel:
-                            text:'[color=#000bdb]F3[/color] - Cancelar Venda'
-                            markup:True
-                            bold:True
-                        MDLabel:
-                            text:'[color=#000bdb]F4[/color] - Finalizar Venda'
-                            markup:True
-                            bold:True
-                        MDLabel:
-                            text:'[color=#000bdb]F5[/color] - Consutar Preço'
-                            markup:True
-                            bold:True
-                        MDLabel:
-                            text:'[color=#000bdb]F6[/color] - Adicionar Produto'
-                            markup:True
-                            bold:True
-                        MDLabel:
-                            text:'[color=#000bdb]F7[/color] - Remover Produtos'
-                            markup:True
-                            bold:True
-                        MDLabel:
-                            text:'[color=#000bdb]F9[/color] - Atualizar Produtos'
-                            markup:True
-                            bold:True
-                    
-                    Widget:
-                        
-                MDBoxLayout:
-                    orientation:'vertical'
-                    adaptive_width:True
-                    spacing:dp(5)
-                    pos_hint:{'top':1}
-                    SWTableWithTitle:
-                        id:table
-
-                    SWLabelWithTitle:
-                        title:'Sub Total'
-                        text:str(table.sub_total)
-                        text_start:'R$ '
-
-                    
-                    MDBoxLayout:
-                        spacing:dp(10)
-                        adaptive_height:True
-                        SWInputWithTitle:
-                            id:total_recebido
-                            title:'Total Recebido'
-                            text:'0'
-                                    
-                        SWLabelWithTitle:
-                            title:'Troco'
-                            text:str(float(total_recebido.text)-table.sub_total) if total_recebido.text else str(-table.sub_total)
-                            text_start:'R$ '
-                                    
-                            
+                    spacing:dp(10)
+                    adaptive_height:True
+                    SWInputWithTitle:
+                        id:total_recebido
+                        title:'Total Recebido'
+                        text:'0'
+                        color:MDApp.get_running_app().color_dark
+                        text_color:MDApp.get_running_app().texto_lite
                                 
+                    SWLabelWithTitle:
+                        title:'Troco'
+                        text:str(float(total_recebido.text)-table.sub_total) if total_recebido.text else str(-table.sub_total)
+                        text_start:'R$ '
+                        color:MDApp.get_running_app().color_dark
+                        text_color:MDApp.get_running_app().texto_lite
+                                
+                        
+                            
