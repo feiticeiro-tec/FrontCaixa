@@ -24,7 +24,6 @@ class FrontCaixa(MDApp):
     def _on_keyboard_settings(self, *args):
         ...
     
-
     def load_kvs(self):
         """Carrega Os Kvs Detros De FrontCaixa/uix/kv"""
         path = './FrontCaixa/uix/kv'

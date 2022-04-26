@@ -1,0 +1,28 @@
+#: import SWColorPicker FrontCaixa.uix.object.macro.sw_color_picker.SWColorPicker
+<ContaPessoal>:
+    MDBoxLayout:
+        md_bg_color:1,0,0,1
+        size_hint_x:None
+        width:dp(1010)
+        MDBoxLayout:
+            size_hint_y:None
+            height:dp(50)
+            FitImage:
+                source:'src/logo.png'
+            MDBoxLayout:
+                orientation:'vertical'
+                MDLabel:
+                    text:'Conta: admin'
+                MDLabel:
+                    text:'Email: admin@gmail.com'
+                MDLabel:
+                    text:'Data De Criação: 26/04/2022'
+                MDTextButton:
+                    text:'Trocar Senha'
+        MDBoxLayout:
+            MDIconButton:
+                icon:'android'
+                theme_text_color:'Custom'
+                on_release:root.open_color(self)
+
+            

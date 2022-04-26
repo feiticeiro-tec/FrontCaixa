@@ -29,7 +29,7 @@ class Index(MDScreen):
     def _on_keyboard_down(self,keyboard,press,*args):
         print(press[1])
         if press[1] == 'f1':
-            print(True)
+            MDApp.get_running_app().goto('Conta Pessoal','down')
         elif press[1] == 'f2':
             print(True)
         elif press[1] == 'f3':

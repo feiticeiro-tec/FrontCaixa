@@ -21,6 +21,7 @@ class Caixa(Model):
     nome = fields.CharField(50)
     email = fields.CharField(50,unique=True)
     senha = fields.TextField()
+    date_create = fields.DatetimeField(auto_now=True)
     
     @staticmethod
     async def create(email:str, nome:str, senha:str):

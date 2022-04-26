@@ -1,0 +1,27 @@
+#: import SWButton FrontCaixa.uix.object.micro.sw_button.SWButton
+<SWColorPicker>:
+    MDBoxLayout:
+        id:fundo
+        size_hint:None,None
+        size:dp(400),dp(290)
+        padding:dp(10)
+        radius:dp(7)
+        orientation:'vertical'
+        spacing:dp(4)
+        md_bg_color:root.color
+        ColorPicker:
+            id:color_picker
+            pos_hint:{'center_x':0.5,'center_y':0.5}
+        SWButton:
+            text:'Pronto'
+            size_hint_x:1
+            md_bg_color:0,0,0,1
+            text_color:1,1,1,1
+            on_release: root.action_pronto()
+        SWButton:
+            text:'Cancelar'
+            size_hint_x:1
+            md_bg_color:0,0,0,1
+            text_color:1,1,1,1
+            on_release: root.action_cancelar()
+
