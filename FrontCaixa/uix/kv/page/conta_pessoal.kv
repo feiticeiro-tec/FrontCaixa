@@ -38,6 +38,12 @@
                     text:'Data De Criação: '
                     theme_text_color:'Custom'
                     text_color:MDApp.get_running_app().texto_lite
+            MDIconButton:
+                icon:'keyboard-backspace'
+                theme_text_color:'Custom'
+                text_color:MDApp.get_running_app().texto_lite
+                pos_hint:{'center_y':0.5}
+                on_release:MDApp.get_running_app().goto('Index','right')
         MDBoxLayout:
             spacing:dp(25)
             adaptive_size:True
