@@ -14,14 +14,14 @@ class Index(MDScreen):
         self.ids.info_conta.text = f'Conta: {caixa.nome}'
     
     def on_enter(self):
-        self.ids.table.add_item_table([
+        self.ids.table.data = [
             ["1","077","Cocacola","5.60","3",str(5*3)],
             ["1","077","Cocacola","5.60","3",str(5*3)],
             ["1","077","Cocacola","5.60","3",str(5*3)],
             ["1","077","Cocacola","5.60","3",str(5*3)],
             ["1","077","Cocacola","5.60","3",str(5*3)],
             ["1","077","Cocacola","5.60","3",str(5*3)],
-        ],True)
+        ]
         self._keyboard.bind(on_key_down = self._on_keyboard_down)
         return super().on_enter()
     def on_leave(self):
