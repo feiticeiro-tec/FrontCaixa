@@ -4,15 +4,13 @@ from kivy.metrics import dp
 from kivy.clock import Clock
 from kivy.properties import NumericProperty,ColorProperty,ListProperty
 
-
-
 class MDDataTable(MDDataTable):
     def set_default_first_row(self, interval: int or float) -> None:
         try:
             super().set_default_first_row(interval)
         except IndexError:
             ...
-            
+
 class SWTableWithTitle(MDBoxLayout):
     sub_total = NumericProperty()
     color=ColorProperty([35/255,35/255,45/255,1])

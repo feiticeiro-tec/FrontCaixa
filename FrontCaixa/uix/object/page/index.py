@@ -2,7 +2,7 @@ from kivymd.app import MDApp
 from kivymd.uix.screen import MDScreen
 from kivy.core.window import Window
 from kivy.metrics import dp
-
+from FrontCaixa.uix.object.macro.add_produto import AddProduto
 
 class Index(MDScreen):
     """Pagina Principal Index"""
@@ -35,6 +35,8 @@ class Index(MDScreen):
             MDApp.get_running_app().goto('Conta Pessoal','down')
         elif press[1] == 'f2':
             print(True)
+            self.add_produto = AddProduto()
+            self.add_produto.open()
         elif press[1] == 'f3':
             print(True)
         elif press[1] == 'f4':
