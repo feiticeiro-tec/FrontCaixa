@@ -1,0 +1,22 @@
+#: import MDApp kivymd.app.MDApp
+#: import SWTextInput FrontCaixa.uix.object.micro.sw_text_input.SWTextInput
+#: import SWButton FrontCaixa.uix.object.micro.sw_button.SWButton
+#: import run_async tortoise.run_async
+
+<SWPopAddProduto>:
+    md_bg_color:MDApp.get_running_app().color_lite
+    MDBoxLayout:
+        adaptive_height:True
+        MDBoxLayout:
+            adaptive_height:True
+            pos_hint:{'right':1}
+            SWTextInput:
+                id:texto
+                hint_text:'Codigo ou Nome Do Produto'
+        MDBoxLayout:
+            adaptive_height:True
+            SWButton:
+                id:button
+                text:'Procurar'
+                on_release:run_async(root.filter_by(texto.text))
+        

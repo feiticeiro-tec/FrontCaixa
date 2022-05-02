@@ -20,6 +20,7 @@ class FrontCaixa(MDApp):
     texto_lite = ListProperty([1,1,1,1])
     texto_dark = ListProperty([0,0,0,1])
     USUARIO = ObjectProperty(CaixaFake())
+    VENDA = 2
     def __init__(self):
         super().__init__()
         run_async(self.start_tortoise())
