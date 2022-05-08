@@ -1,0 +1,25 @@
+<SWTable>:
+    md_bg_color:1,1,1,1
+    ScrollView:
+        effect_cls:'ScrollEffect'
+        MDBoxLayout:
+            adaptive_width:True
+            orientation:'vertical'    
+            MDBoxLayout:
+                adaptive_height:True
+                md_bg_color:root.lines_color
+                MDBoxLayout:
+                    id:header
+                    adaptive_size:True
+            RecycleView:
+                id:table
+                viewclass:'SWRowTable'
+                effect_cls:'ScrollEffect'
+                size_hint_x: None
+                RecycleBoxLayout:
+                    id:table_config
+                    default_size: table.width, dp(30)
+                    default_size_hint: None, None
+                    size_hint_y: None
+                    height: self.minimum_height
+                    orientation: 'vertical'

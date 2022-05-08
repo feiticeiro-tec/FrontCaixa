@@ -1,7 +1,7 @@
 #: import MDApp kivymd.app.MDApp
 #: import SWLabel FrontCaixa.uix.object.micro.sw_label.SWLabel
 #: import SWInputWithTitle FrontCaixa.uix.object.micro.sw_input_with_title.SWInputWithTitle
-#: import SWTableWithTitle FrontCaixa.uix.object.macro.sw_table_with_title.SWTableWithTitle
+#: import SWTable FrontCaixa.uix.object.macro.sw_table.SWTable
 #: import SWBox FrontCaixa.uix.object.macro.sw_box.SWBox
 <Index>:
     MDBoxLayout:
@@ -126,16 +126,27 @@
                 adaptive_width:True
                 spacing:dp(5)
                 pos_hint:{'top':1}
+                id:area
 
                 SWBox:
                     text:'Produtos'
                     md_bg_color:MDApp.get_running_app().color_dark
                     text_color:1,1,1,1
                     adaptive_width:True
-                    MDBoxLayout:
+                    size_hint_y:None
+                    height:area.height-dp(170)
+                    id:box_table
+
+                    SWTable:
+                        id:table
                         size_hint:None,None
-                        size:dp(690),dp(300)
-                        md_bg_color:1,0,0,1
+                        size:dp(700),area.height-dp(210)
+                        sizes:[[dp(80),dp(30)],[dp(80),dp(30)],[dp(200),dp(30)],[dp(80),dp(30)],[dp(80),dp(30)],[dp(150),dp(30)]]
+                        head_color:0,1,0,1
+                        header:[False,'No.','Codigo','Nome','Un. Valor','Unidades','Total']
+                        
+                        radius:dp(7),dp(7),dp(7),dp(7)
+                        line_color:0,0,0,1
 
 
                 #SWTableWithTitle:
@@ -148,7 +159,8 @@
                     md_bg_color:MDApp.get_running_app().color_dark
                     text_color:1,1,1,1
                     SWLabel:
-                        text:'100'#str(table.sub_total)
+                        id:sub_total
+                        text: str(table.data_values.get('Total')) if table.data_values else '0'
                         text_start:'R$ '
 
                 
@@ -167,7 +179,7 @@
                         md_bg_color:MDApp.get_running_app().color_dark
                         text_color:1,1,1,1
                         SWLabel:
-                            text:'100'#str(float(total_recebido.text)-table.sub_total) if total_recebido.text else str(-table.sub_total)
+                            text: str(float(total_recebido.text if total_recebido.text else 0) - float(sub_total.text if sub_total.text else 0))
                             text_start:'R$ '
                                 
                         

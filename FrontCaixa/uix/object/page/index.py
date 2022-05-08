@@ -17,10 +17,8 @@ class Index(MDScreen):
         super().__init__(*args,**kw)
         self._keyboard = Window.request_keyboard(self._keyborad_close,self)
         MDApp.get_running_app().bind(USUARIO=self.update_labels)
-
     def update_labels(self,obj,caixa):
         self.ids.info_conta.text = f'Conta: {caixa.nome}'
-    
     def on_enter(self):
         self.update_table([
             ["1","077","Cocacola","5.60","3",str(5*3)],
@@ -36,7 +34,7 @@ class Index(MDScreen):
 
     def update_table(self,data):
         #self.ids.table.data = data
-        ...
+        self.ids.table.set_data()
 
     def on_leave(self):
         self._keyboard.unbind(on_key_down = self._on_keyboard_down)
