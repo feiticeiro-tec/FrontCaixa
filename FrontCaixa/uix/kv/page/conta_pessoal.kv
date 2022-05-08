@@ -2,6 +2,7 @@
 #: import SWPickerWithLabel FrontCaixa.uix.object.micro.sw_picker_with_label.SWPickerWithLabel
 #: import SWButton FrontCaixa.uix.object.micro.sw_button.SWButton
 #: import SWTextInput FrontCaixa.uix.object.micro.sw_text_input.SWTextInput
+#: import SWBox FrontCaixa.uix.object.macro.sw_box.SWBox
 #: import run_async tortoise.run_async
 <ContaPessoal>:
     MDBoxLayout:
@@ -95,21 +96,15 @@
                     pos_hint:{'center_x':0.5}
                     bold:True
 
-            MDBoxLayout:
-                orientation:'vertical'
-                adaptive_size:True
-                spacing:dp(4)
-                pos_hint:{'center_x':0.5,'top':1}
-                MDBoxLayout:
-                    size_hint_y:None
-                    height:dp(25)
-                    MDLabel:
-                        text:'Trocar Senha'
-                        font_style:'Overline'
-                        halign:'center'
-                        bold:True
-                        font_size:dp(16)
-                        color:MDApp.get_running_app().texto_lite
+            
+            SWBox:
+                md_bg_color:0,0,0,0
+                text:'Trocar Senha'
+                text_color:MDApp.get_running_app().texto_lite
+                size_hint_x:None
+                width:dp(250)
+                pos_hint:{'top':1}
+                spacing:dp(5)
 
                 SWTextInput:
                     id:novasenha

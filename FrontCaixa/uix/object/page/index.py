@@ -35,7 +35,8 @@ class Index(MDScreen):
         return super().on_enter()
 
     def update_table(self,data):
-        self.ids.table.data = data
+        #self.ids.table.data = data
+        ...
 
     def on_leave(self):
         self._keyboard.unbind(on_key_down = self._on_keyboard_down)

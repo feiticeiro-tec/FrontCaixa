@@ -1,7 +1,8 @@
 #: import MDApp kivymd.app.MDApp
-#: import SWLabelWithTitle FrontCaixa.uix.object.micro.sw_label_with_title.SWLabelWithTitle
+#: import SWLabel FrontCaixa.uix.object.micro.sw_label.SWLabel
 #: import SWInputWithTitle FrontCaixa.uix.object.micro.sw_input_with_title.SWInputWithTitle
 #: import SWTableWithTitle FrontCaixa.uix.object.macro.sw_table_with_title.SWTableWithTitle
+#: import SWBox FrontCaixa.uix.object.macro.sw_box.SWBox
 <Index>:
     MDBoxLayout:
         orientation:'vertical'
@@ -125,17 +126,30 @@
                 adaptive_width:True
                 spacing:dp(5)
                 pos_hint:{'top':1}
-                SWTableWithTitle:
-                    id:table
-                    color:MDApp.get_running_app().color_dark
-                    text_color:MDApp.get_running_app().texto_lite
 
-                SWLabelWithTitle:
-                    title:'Sub Total'
-                    text:str(table.sub_total)
-                    text_start:'R$ '
-                    color:MDApp.get_running_app().color_dark
-                    text_color:MDApp.get_running_app().texto_lite
+                SWBox:
+                    text:'Produtos'
+                    md_bg_color:MDApp.get_running_app().color_dark
+                    text_color:1,1,1,1
+                    adaptive_width:True
+                    MDBoxLayout:
+                        size_hint:None,None
+                        size:dp(690),dp(300)
+                        md_bg_color:1,0,0,1
+
+
+                #SWTableWithTitle:
+                #    id:table
+                #    color:MDApp.get_running_app().color_dark
+                #    text_color:MDApp.get_running_app().texto_lite
+                
+                SWBox:
+                    text: 'Sub Total'
+                    md_bg_color:MDApp.get_running_app().color_dark
+                    text_color:1,1,1,1
+                    SWLabel:
+                        text:'100'#str(table.sub_total)
+                        text_start:'R$ '
 
                 
                 MDBoxLayout:
@@ -147,13 +161,14 @@
                         text:'0'
                         color:MDApp.get_running_app().color_dark
                         text_color:MDApp.get_running_app().texto_lite
-                                
-                    SWLabelWithTitle:
-                        title:'Troco'
-                        text:str(float(total_recebido.text)-table.sub_total) if total_recebido.text else str(-table.sub_total)
-                        text_start:'R$ '
-                        color:MDApp.get_running_app().color_dark
-                        text_color:MDApp.get_running_app().texto_lite
+                    
+                    SWBox:
+                        text: 'Troco'
+                        md_bg_color:MDApp.get_running_app().color_dark
+                        text_color:1,1,1,1
+                        SWLabel:
+                            text:'100'#str(float(total_recebido.text)-table.sub_total) if total_recebido.text else str(-table.sub_total)
+                            text_start:'R$ '
                                 
                         
                             
